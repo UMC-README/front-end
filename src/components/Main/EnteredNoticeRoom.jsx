@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { getEnteredRoom } from '../../api/Main/home';
+import { getEnteredRoom } from '../../api/home';
 import NoticeRoom from './NoticeRoom';
-import prevButtonSvg from '../../assets/svgs/prev_button.svg';
-import nextButtonSvg from '../../assets/svgs/next_button.svg';
-import { useNavigate } from 'react-router-dom';
+import prevButtonSvg from '../../assets/images/prev_button.svg';
+import nextButtonSvg from '../../assets/images/next_button.svg';
 
 const ITEMS_PER_PAGE = 6;
 
 export const EnteredNoticeRoom = () => {
-  const navigate = useNavigate();
   const [noticeRooms, setNoticeRooms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isNext, setIsNext] = useState(false);
@@ -27,10 +25,12 @@ export const EnteredNoticeRoom = () => {
           setTotalPages(response.result.totalPages);
         }
       } catch (error) {
-        console.error('Error fetching entered rooms:', error);
+        console.error('Error fetching entered rooms:', error); // 에러 처리
       }
     })();
   }, [currentPage]);
+
+  //const totalPages = Math.ceil(noticeRooms.length / ITEMS_PER_PAGE) || 1;
 
   const handlePrevPage = () => {
     setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage));
@@ -55,11 +55,7 @@ export const EnteredNoticeRoom = () => {
           <>
             <NoticeRooms>
               {currentNotices.map((room) => (
-                <NoticeRoom
-                  key={room.id}
-                  room={room}
-                  onClick={() => navigate(`/notice/${room.id}`)}
-                />
+                <NoticeRoom key={room.id} room={room} />
               ))}
             </NoticeRooms>
             {noticeRooms.length > 0 && (
