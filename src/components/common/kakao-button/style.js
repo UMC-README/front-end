@@ -14,4 +14,8 @@ export const KakaoLogin = styled.button`
   &.full {
     width: 100%;
   }
+
+  &.zero-margin {
+    margin: 0;
+  }
 `;
