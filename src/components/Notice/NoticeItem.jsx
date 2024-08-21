@@ -29,14 +29,14 @@ export const NoticeItem = ({ props, imgs, preview, isManager, chkActive }) => {
       />
       <NoticeContent>{props?.postBody}</NoticeContent>
       {imgs && imgs.map((img) => <Thumbnail key={img} src={img} />)}
-      {!preview && !isManager && (
-        <NoticeCheckButton
-          disabled={disabled}
-          onClick={() => navigate(`/notice/${roomId}/${postId}/solve`)}
-        >
-          <NoticeCheckIcon src={NoticeCheck} /> 공지 확인
-        </NoticeCheckButton>
-      )}
+      {/* {!preview && !isManager && ( */}
+      <NoticeCheckButton
+        disabled={disabled}
+        onClick={() => navigate(`/notice/${roomId}/${postId}/solve`)}
+      >
+        <NoticeCheckIcon src={NoticeCheck} /> 공지 확인
+      </NoticeCheckButton>
+      {/* )} */}
     </Container>
   );
 };
@@ -86,6 +86,7 @@ const NoticeCheckButton = styled.button`
   line-height: 100%; /* 1rem */
   letter-spacing: -0.02rem;
   margin-left: auto;
+  white-space: nowrap;
 
   &:disabled {
     background: #bdbdbd;
