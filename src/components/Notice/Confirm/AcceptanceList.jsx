@@ -82,7 +82,7 @@ const CheckContainer = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 0.5rem;
-  border: 0.33px solid var(--Primary-light-active, #c9e0fd);
+  border: 0.020625rem solid var(--Primary-light-active, #c9e0fd);
   background: var(--Primary-light, #f4f9ff);
   flex-grow: 1;
   flex-shrink: 1;

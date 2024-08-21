@@ -35,14 +35,19 @@ export const MemberProfile = () => {
       <ImgWrapper>
         <ImgContainer src={profileImage} alt={`${nickname}'s profile`} />
       </ImgWrapper>
-      <PaneltyCheck>
-        패널티
-        <PenaltyNum>
-          <PenaltyColor>{penaltyData.penalty_count}</PenaltyColor>
-          <MaxPenaltyColor>/</MaxPenaltyColor>
-          <MaxPenaltyColorSpace>{penaltyData.max_penalty}</MaxPenaltyColorSpace>
-        </PenaltyNum>
-      </PaneltyCheck>
+      <PenaltyWrapper>
+        <PaneltyCheck>
+          패널티
+          <PenaltyNum>
+            <PenaltyColor>{penaltyData.penalty_count}</PenaltyColor>
+            <MaxPenaltyColor>/</MaxPenaltyColor>
+            <MaxPenaltyColorSpace>
+              {penaltyData.max_penalty}
+            </MaxPenaltyColorSpace>
+          </PenaltyNum>
+        </PaneltyCheck>
+      </PenaltyWrapper>
+
       <CustomBtn
         text="확인"
         border="0.5px solid #509BF7"
@@ -68,7 +73,6 @@ const ImgWrapper = styled.div`
   padding: 0.625rem 4.0625rem;
   flex-direction: column;
   align-items: center;
-  width: 18.75rem;
   height: 18.75rem;
   gap: 3.75rem;
 `;
@@ -82,6 +86,11 @@ const ImgContainer = styled.img`
   display: block;
   margin: 0 auto;
   margin-top: 3.5625rem;
+`;
+
+const PenaltyWrapper = styled.div`
+  width: 100%;
+  padding: 0rem 4.5rem;
 `;
 
 const PaneltyCheck = styled.div`
@@ -99,12 +108,12 @@ const PaneltyCheck = styled.div`
 `;
 
 const PenaltyNum = styled.div`
-  margin-top: 4px;
+  margin-top: 0.25rem;
 `;
 
 const PenaltyColor = styled.span`
   color: var(--System-Danger, #f5535e); /* 경고 색상 또는 기본 빨간색 */
-  margin-right: 5px; /* 오른쪽 여백 */
+  margin-right: 0.3125rem; /* 오른쪽 여백 */
   font-size: 1rem; /* 폰트 크기 */
   font-weight: 700; /* 굵은 글씨 */
   line-height: 1rem; /* 줄 높이 */
@@ -116,7 +125,7 @@ const MaxPenaltyColor = styled.span`
   font-size: 1rem; /* 폰트 크기 */
   font-weight: 700; /* 굵은 글씨 */
   line-height: 1rem; /* 줄 높이 */
-  margin-right: 5px; /* 글자 간격 */
+  margin-right: 0.3125rem; /* 글자 간격 */
   text-align: center; /* 텍스트 중앙 정렬 */
 `;
 
