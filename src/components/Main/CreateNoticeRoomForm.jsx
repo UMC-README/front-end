@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import CustomInput from '../../components/CustomInput';
 import toAlbumBtnIcon from '../../assets/svgs/albumbutton.svg';
 import { postNoticeRoomImage } from '../../api/Main/createnoticeroom';
-import questionIcon from '../../assets/svgs/question_icon.svg';
+import { ReactComponent as Tooltip } from '../../assets/svgs/help_icon.svg';
+import useOutsideClick from '../../hooks/use-outside-click';
 
 const CreateNoticeRoomForm = ({
   leaderName,
@@ -17,7 +18,13 @@ const CreateNoticeRoomForm = ({
   onPenaltyCountChange,
   onImageChange,
 }) => {
-  const [isTooltipVisible, setTooltipVisible] = useState(false);
+  const [isTooltipOpen, setIsTooltipOpen] = useState(false);
+  const [tooltipRef] = useOutsideClick(() => setIsTooltipOpen(false));
+
+  const handleOpenTooltip = (e) => {
+    e.stopPropagation();
+    setIsTooltipOpen((prev) => !prev);
+  };
 
   const handleAlbumClick = () => {
     const input = document.createElement('input');
@@ -44,14 +51,6 @@ const CreateNoticeRoomForm = ({
     input.click();
   };
 
-  const toggleTooltip = () => {
-    setTooltipVisible(!isTooltipVisible);
-  };
-
-  const closeTooltip = () => {
-    setTooltipVisible(false);
-  };
-
   return (
     <Container>
       <ImageContainer>
@@ -64,9 +63,23 @@ const CreateNoticeRoomForm = ({
         <Section>
           <SectionTitle>
             단체 정보
-            <QuestionIcon onClick={toggleTooltip}>
-              <img src={questionIcon} alt="Question Icon" />
-            </QuestionIcon>
+            <button className="tooltip" onClick={handleOpenTooltip}>
+              <Tooltip />
+              {isTooltipOpen && (
+                <div className="tooltip-wrap" ref={tooltipRef}>
+                  <div className="content regular-10">
+                    페널티 개수는 <br />
+                    최대 10개까지 설정 가능합니다.
+                    <br />
+                    설정한 개수 이상으로 페널티를 받으면,
+                    <br />
+                    해당 팀원은
+                    <b>퇴장</b> 처리됩니다.
+                  </div>
+                  <div className="tip" />
+                </div>
+              )}
+            </button>
           </SectionTitle>
           <CustomInput
             placeholder="단체 대표자 이름"
@@ -93,20 +106,6 @@ const CreateNoticeRoomForm = ({
           />
         </Section>
       </FormContainer>
-
-      {isTooltipVisible && (
-        <TooltipOverlay onClick={closeTooltip}>
-          <Tooltip>
-            <div>
-              패널티 개수는 최대 <strong>10개</strong>까지 설정 가능합니다.
-            </div>
-            <div>
-              설정한 개수 이상으로 페널티를 받으면, 해당 팀원은{' '}
-              <strong>퇴장</strong> 처리됩니다.
-            </div>
-          </Tooltip>
-        </TooltipOverlay>
-      )}
     </Container>
   );
 };
@@ -165,41 +164,41 @@ const SectionTitle = styled.div`
   font-weight: 700;
   line-height: 100%;
   letter-spacing: -0.0225rem;
-`;
+  gap: 0.5rem;
 
-const QuestionIcon = styled.div`
-  margin-left: 0.5rem;
-  cursor: pointer;
-`;
+  .tooltip {
+    border: none;
+    background-color: #ffffff;
+    padding: 0;
+    display: flex;
+    position: relative;
 
-const TooltipOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-`;
+    .tooltip-wrap {
+      position: absolute;
+      bottom: 1.5rem;
+      text-align: start;
+      width: max-content;
 
-const Tooltip = styled.div`
-  display: flex;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  background: #f3f3f3;
-  color: v #222;
-  font-size: 0.625rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 90%; /* 0.5625rem */
-  letter-spacing: -0.0125rem;
-  strong {
-    font-weight: 700;
+      .content {
+        border-radius: 0.5rem;
+        padding: 0.625rem;
+        background-color: var(--color-gray-1);
+        position: relative;
+        right: 1.6rem;
+        color: var(--color-default);
+      }
+
+      .tip {
+        width: 0;
+        height: 0;
+        border-width: 0.625rem 0.625rem 0;
+        border-style: solid;
+        border-color: #ffffff;
+        border-top: 0.625rem solid var(--color-gray-1);
+        position: relative;
+      }
+    }
   }
-  flex-direction: column;
 `;
 
 export default CreateNoticeRoomForm;
