@@ -20,6 +20,19 @@ export const getMemberList = async (searchInput, roomId) => {
   }
 };
 
+export const getAdminInfo = async (nickname, roomId) => {
+  try {
+    const response = await GetAxiosInstance(
+      `/admin/users?nickname=${nickname}&roomId=${roomId}`,
+    );
+    console.log('어드민데이터:', response.data.result);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching member list:', error);
+    throw error;
+  }
+};
+
 export const getMemberInvitation = async (roomId) => {
   const response = await GetAxiosInstance(`/admin/invitation/${roomId}`);
   return response.data;
