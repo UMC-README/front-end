@@ -140,9 +140,7 @@ export const MemberListMap = ({ members }) => {
       {isThirdModalOpen && (
         <ModalOverlay onClick={handleThirdModalClose}>
           <CommonModalContent onClick={(e) => e.stopPropagation()}>
-            <KickOutText>
-              {selectedProfile?.nickname}님이 추방되었습니다.
-            </KickOutText>
+            <TextBox>{selectedProfile?.nickname}님이 추방되었습니다.</TextBox>
             <ButtonWrapper>
               <CloseButton onClick={handleThirdModalClose}>확인</CloseButton>
             </ButtonWrapper>
@@ -278,10 +276,8 @@ const InfoText = styled.span`
   text-align: center;
 `;
 
-const KickOutText = styled.span`
+const TextBox = styled.p`
   text-align: center;
-  white-space: normal;
-  display: inline-block;
-  margin: 0 auto;
-  word-break: break-word;
+  justify-content: center;
+  align-items: center;
 `;
