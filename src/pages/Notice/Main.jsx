@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { UnconfirmedNotice } from '../../components/Notice/UnconfirmedNotice';
+import { UnconfirmedNotice } from '../../components/Notice/Main/UnconfirmedNotice';
 import { Header } from '../../components/Header';
 import styled, { keyframes } from 'styled-components';
-import { NoticePreview } from '../../components/Notice/NoticePreview';
+import { NoticePreview } from '../../components/Notice/Main/NoticePreview';
 import { ReactComponent as Arrow } from '../../assets/svgs/top_arrow.svg';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Edit } from '../../assets/svgs/floating_icon1.svg';

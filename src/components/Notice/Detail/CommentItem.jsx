@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import ShowmoreIcon from '../../assets/svgs/show_more_icon.svg';
-import CustomModal from '../CustomModal';
-import { deleteNoticeComment } from '../../api/Notice/details';
+import ShowmoreIcon from '../../../assets/svgs/show_more_icon.svg';
+import CustomModal from '../../CustomModal';
+import { deleteNoticeComment } from '../../../api/Notice/details';
 
 export const CommentItem = ({ props, onDelete }) => {
   const [profileImg, setProfileImg] = useState('');
