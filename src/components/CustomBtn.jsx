@@ -31,4 +31,6 @@ const StyledCustomBtn = styled.button`
       : props.background === '#FDD8DB'
         ? '#F5535E'
         : '#FFFFFF'};
+  font-size: 1rem;
+  font-weight: 500;
 `;
