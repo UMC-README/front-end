@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as SpinButton } from '../../assets/svgs/spin_icon.svg';
-import { UnconfirmedNoticeItem } from '../Notice/UnconfirmedNoticeItem';
+import { ReactComponent as SpinButton } from '../../../assets/svgs/spin_icon.svg';
+import { UnconfirmedNoticeItem } from './UnconfirmedNoticeItem';
 import { useSelector } from 'react-redux';
-import { setIsRotated } from '../../redux/Notice/NoticeActions';
+import { setIsRotated } from '../../../redux/Notice/NoticeActions';
 
 export const UnconfirmedNotice = ({ dispatch, postData }) => {
   const isRotated = useSelector((state) => state.notice.isRotated);

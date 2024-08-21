@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NoticeTitle } from './NoticeTitle';
+import { NoticeTitle } from '../NoticeTitle';
 import { Link } from 'react-router-dom';
-import NoticeCheck from '../../assets/svgs/notice_check.svg';
+import NoticeCheck from '../../../assets/svgs/notice_check.svg';
 
 export const NoticePreview = ({
   props,

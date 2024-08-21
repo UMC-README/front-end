@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { NoticeItem } from '../../components/Notice/NoticeItem';
+import { NoticeItem } from '../../components/Notice/Detail/NoticeItem';
 import styled from 'styled-components';
-import { CommentItem } from '../../components/Notice/CommentItem';
+import { CommentItem } from '../../components/Notice/Detail/CommentItem';
 import CommentWrite from '../../assets/svgs/comment_write.svg';
 import { Header } from '../../components/Header';
 import {

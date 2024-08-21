@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { NoticeTitle } from './NoticeTitle';
+import { NoticeTitle } from '../NoticeTitle';
 import styled from 'styled-components';
-import NoticeCheck from '../../assets/svgs/notice_check.svg';
+import NoticeCheck from '../../../assets/svgs/notice_check.svg';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export const NoticeItem = ({ props, imgs, preview, isManager, chkActive }) => {
