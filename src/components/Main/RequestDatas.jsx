@@ -12,10 +12,8 @@ export const RequestDatas = () => {
     (async () => {
       try {
         const response = await getNoticeCheckRequests();
-        console.log(response);
 
         if (response.isSuccess) {
-          //확인요청내역 0개보다 큰 경우만 뜨도록
           const Rooms = response.result.rooms.filter(
             (room) => room.submitCount > 0,
           );
