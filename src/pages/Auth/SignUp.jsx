@@ -12,7 +12,7 @@ import { Header } from '../../components/Header';
 
 export default function Signup() {
   const [width, setWidth] = useState(0);
-  const [page, setPage] = useState(5);
+  const [page, setPage] = useState(1);
   const [code, setCode] = useState({
     value: '',
     isValid: 'none',
