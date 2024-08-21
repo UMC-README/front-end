@@ -13,7 +13,7 @@ export default function FourthStep({
   const passwordMatch = password === passwordCheck;
   return (
     <>
-      <FlexBox col gap={0.1875} px={1}>
+      <FlexBox col gap={0.1875} px={1} py={3.75}>
         <h1 className="bold-24">비밀번호를 입력해주세요.</h1>
         <FlexBox col gap={0.625} calc={2}>
           <Input
