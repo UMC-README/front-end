@@ -8,7 +8,7 @@ import { Debounce } from '../Debounce';
 import { useDispatch } from 'react-redux';
 import { setKeysCount } from '../../redux/KeySlice';
 import { useParams } from 'react-router-dom';
-import { getMyInfo } from '../../api/Member/memberListCheck';
+import { getAdminInfo, getMyInfo } from '../../api/Member/memberListCheck';
 import { getMemberList } from '../../api/Member/memberListCheck';
 import { getAdminProfile } from '../../api/Member/memberListCheck';
 
@@ -44,19 +44,19 @@ export const MemberListItem = () => {
     const fetchMemberList = async () => {
       try {
         const memberData = await getMemberList('', roomId);
-        const adminData = await getAdminProfile(roomId);
-        console.log('admin의 유저아이디는:', adminData);
+        const adminData = await getAdminInfo('', roomId);
+        console.log('room별 admin정보:', adminData);
 
         setState((prevState) => ({
           ...prevState,
-          results: memberData.result,
-          allMembers: memberData.result,
-          adminName: adminData.result,
+          results: memberData.result.userProfile,
+          allMembers: memberData.result.userProfile,
+          adminName: adminData.result.adminProfile,
         }));
         dispatch(
           setKeysCount({
-            count: memberData.result.length,
-            members: memberData.result,
+            count: memberData.result.userProfile.length,
+            members: memberData.result.userProfile,
           }),
         );
       } catch (error) {
@@ -129,7 +129,9 @@ export const MemberListItem = () => {
           <ButtonText>멤버초대하기</ButtonText>
         </ButtonContainer>
         <ButtonContainer>
-          <MemberNameBtn src={state.adminName.profileImage} />
+          <BtnWrapper>
+            <MemberNameBtn src={state.adminName.profileImage} />
+          </BtnWrapper>
           <ButtonText>{state.adminName.nickname}</ButtonText>
         </ButtonContainer>
 
@@ -272,8 +274,8 @@ const SearchInput = styled.input`
   }
 `;
 const MemberNameBtn = styled.img`
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 100%;
+  height: 100%;
   border-radius: 0.5rem;
   opacity: 1;
   background: #dddddd;

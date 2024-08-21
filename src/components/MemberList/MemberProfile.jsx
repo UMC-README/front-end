@@ -68,12 +68,14 @@ const ImgWrapper = styled.div`
   padding: 0.625rem 4.0625rem;
   flex-direction: column;
   align-items: center;
+  width: 18.75rem;
+  height: 18.75rem;
   gap: 3.75rem;
 `;
 
 const ImgContainer = styled.img`
   width: 100%;
-  height: 18.75rem;
+  height: 100%;
   object-fit: cover;
   border-radius: 0.9375rem;
   box-sizing: border-box;
