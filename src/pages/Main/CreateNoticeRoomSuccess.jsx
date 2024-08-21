@@ -4,6 +4,7 @@ import { CustomBtn } from '../../components/CustomBtn';
 import { Header } from '../../components/Header';
 import CreateNoticeRoomSuccessForm from '../../components/Main/CreateNoticeRoomSuccessForm';
 import { useLocation, useNavigate } from 'react-router-dom';
+import KakaoButton from '../../components/common/kakao-button';
 
 const CreateNoticeRoomSuccess = () => {
   const navigate = useNavigate();
@@ -48,6 +49,18 @@ const CreateNoticeRoomSuccess = () => {
         />
       </div>
       <ButtonContainer>
+        <KakaoButton
+          full
+          zeroMargin
+          room={{
+            name: roomName,
+            password,
+            image: profileImage[0],
+            url,
+          }}
+        >
+          카카오톡으로 공유하기
+        </KakaoButton>
         <CustomBtn
           text="공지방으로 이동"
           background="#509BF7"

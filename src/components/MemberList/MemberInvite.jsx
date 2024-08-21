@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getMemberInvitation } from '../../api/Member/memberListCheck';
-import KakaoLoginButton from '../common/kakao-login';
+import KakaoButton from '../common/kakao-button';
 import { ReactComponent as CopyIcon } from '../../assets/svgs/copy_icon.svg';
 import FloatingBox from '../common/floating-box';
 import Button from '../common/button';
@@ -33,21 +33,6 @@ export const MemberInvite = () => {
 
   const handleNavToNoticeRoom = () => {
     navigate(`/notice/${roomId}`);
-  };
-
-  const handleShareUrl = () => {
-    Kakao.Share.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: 'READ.ME',
-        description: `${invite.room_name} 공지방에 참여하세요!\n비밀번호는 ${invite.room_password} 입니다.`,
-        imageUrl: invite.room_image || '',
-        link: {
-          mobileWebUrl: `${roomBaseUrl}/notice/entry/${invite.room_invite_url}`,
-          webUrl: `${roomBaseUrl}/notice/entry/${invite.room_invite_url}`,
-        },
-      },
-    });
   };
 
   useEffect(() => {
@@ -95,9 +80,16 @@ export const MemberInvite = () => {
         </div>
       </Container>
       <FloatingBox>
-        <KakaoLoginButton onClick={handleShareUrl}>
+        <KakaoButton
+          room={{
+            name: invite.room_name,
+            password: invite.room_password,
+            image: invite.room_image,
+            url: invite.room_invite_url,
+          }}
+        >
           카카오톡으로 공유하기
-        </KakaoLoginButton>
+        </KakaoButton>
         <Button
           type="outline"
           name="공지방으로 이동"
