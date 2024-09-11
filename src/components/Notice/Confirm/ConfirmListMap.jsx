@@ -62,7 +62,7 @@ const BoxContainer = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  height: 10.625rem;
+  height: 100%;
   padding: 0.625rem;
   border-radius: 0.5rem;
   border: 0.020625rem 0 0 0;
@@ -83,7 +83,7 @@ const TitleBox = styled.div`
   line-height: 1.125rem;
   letter-spacing: -0.02em;
   text-align: left;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 `;
 
 const DateBox = styled.div`
@@ -99,7 +99,7 @@ const DateBox = styled.div`
   line-height: 0.75rem;
   letter-spacing: -0.02em;
   text-align: left;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 `;
 
 const FrameBox = styled.div`
@@ -176,7 +176,7 @@ const BtnStyle = styled.div`
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 100%; /* 1rem */
+  line-height: 100%;
   letter-spacing: -0.02rem;
   gap: 0.25rem;
   svg {

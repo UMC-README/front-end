@@ -38,7 +38,6 @@ export const MemberListMap = ({ members }) => {
           userId: selectedProfile.userId,
         },
       });
-      console.log(selectedProfile.profileImage);
     } else {
       console.error('Selected profile is not defined');
     }
@@ -141,7 +140,7 @@ export const MemberListMap = ({ members }) => {
       {isThirdModalOpen && (
         <ModalOverlay onClick={handleThirdModalClose}>
           <CommonModalContent onClick={(e) => e.stopPropagation()}>
-            <p>{selectedProfile?.nickname}님이 추방되었습니다.</p>
+            <TextBox>{selectedProfile?.nickname}님이 추방되었습니다.</TextBox>
             <ButtonWrapper>
               <CloseButton onClick={handleThirdModalClose}>확인</CloseButton>
             </ButtonWrapper>
@@ -247,7 +246,7 @@ const BtnWrapper = styled.div`
 
 const MemberAddBtn = styled.button`
   width: 100%;
-  height: 2.75rem;
+  height: 100%;
   margin-right: 0.8rem;
   padding: 0.625rem;
   border-radius: 0.5rem;
@@ -260,19 +259,25 @@ const MemberAddBtn = styled.button`
 `;
 
 const TextContainer = styled.div`
-  padding: 0px, 16px, 15px, 16px;
+  padding: 0rem 1rem 0rem 1rem;
 `;
 
 const ModalText = styled.div`
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 `;
 
 const InfoText = styled.span`
   font-family: Pretendard;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 400;
-  line-height: 12px;
+  line-height: 0.75rem;
   letter-spacing: -0.02em;
   text-align: center;
+`;
+
+const TextBox = styled.p`
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 `;

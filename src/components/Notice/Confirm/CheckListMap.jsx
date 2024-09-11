@@ -202,7 +202,7 @@ const SecondButtonContainer = styled.div`
   align-items: center;
   align-self: stretch;
   border-radius: 0.5rem;
-  border: 0.33px solid var(--Primary-Light-active, #c9e0fd);
+  border: 0.020625rem solid var(--Primary-Light-active, #c9e0fd);
   margin-bottom: 1rem;
 `;
 
@@ -212,9 +212,9 @@ const YesButton = styled.button`
   justify-content: center;
   align-items: center;
   flex: 1 0 0;
-  border-right: 0.33px solid var(--Primary-light-active, #c9e0fd);
+  border-right: 0.020625rem solid var(--Primary-light-active, #c9e0fd);
   background: var(--Primary-light, #f4f9ff);
-  border: 0.3px solid #c9e0fd;
+  border: 0.020625rem solid #c9e0fd;
   border-radius: 0.5rem 0rem 0rem 0.5rem;
 `;
 
@@ -224,21 +224,21 @@ const NoButton = styled.button`
   justify-content: center;
   align-items: center;
   flex: 1 0 0;
-  border-right: 0.33px solid var(--Primary-light-active, #c9e0fd);
+  border-right: 0.020625rem solid var(--Primary-light-active, #c9e0fd);
   background: var(--Primary-light, #f4f9ff);
-  border: 0.3px solid #c9e0fd;
+  border: 0.020625rem solid #c9e0fd;
   border-radius: 0rem 0.5rem 0.5rem 0rem;
 `;
 
 const StyledImage = styled.img`
   width: 100%;
   height: 100%;
-  border: 0.33px;
+  border: 0.020625rem;
   bottom: 0.625rem;
 `;
 
 const BorderContainer = styled.div`
-  border-bottom: 0.33px solid var(--Primary-light-active, #c9e0fd);
+  border-bottom: 0.020625rem solid var(--Primary-light-active, #c9e0fd);
 `;
 
 const PrevPageContainer = styled.button`

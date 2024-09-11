@@ -9,7 +9,7 @@ const CreateNoticeRoomSuccessForm = ({
   password,
   nickName,
 }) => {
-  const baseURL = 'https://read-me-official.kro.kr';
+  const baseURL = import.meta.env.VITE_PROD_BASE_URL;
   const handleCopyClick = () => {
     const fullUrl = `${baseURL}/notice/entry/${url}`;
     navigator.clipboard
@@ -32,9 +32,9 @@ const CreateNoticeRoomSuccessForm = ({
             <InfoSet>
               <InfoLabel>초대 URL</InfoLabel>
               <UrlContainer>
-                <InfoValue>
+                <div className="url regular-14">
                   {baseURL}/notice/entry/{url}
-                </InfoValue>
+                </div>
                 <CopyButton onClick={handleCopyClick}>
                   <img src={copyIcon} alt="Copy Icon" />
                 </CopyButton>
@@ -153,6 +153,15 @@ const UrlContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  overflow: hidden;
+
+  .url {
+    flex: 1;
+    color: #222;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 `;
 
 const CopyButton = styled.button`

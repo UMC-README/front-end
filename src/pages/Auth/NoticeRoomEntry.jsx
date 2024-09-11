@@ -9,7 +9,7 @@ import {
   registerUser,
   roomInfo,
 } from '../../api/Auth/authEnter.js';
-import LoadingSpinner from '../../components/Notice/LoadingSpinner.jsx';
+import LoadingSpinner from '../../components/Auth/LoadingSpinner.jsx';
 
 const NoticeRoomEntry = () => {
   const navigate = useNavigate();

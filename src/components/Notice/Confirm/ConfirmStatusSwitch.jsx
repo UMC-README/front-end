@@ -53,7 +53,7 @@ const MissionTogle = styled.div`
 
 const BarLeftContainer = styled.button`
   border-radius: 0.5rem 0 0 0.5rem;
-  border: 1px solid #bdbdbd;
+  border: 0.0625rem solid #bdbdbd;
   align-items: center;
   box-sizing: border-box;
   justify-content: center;

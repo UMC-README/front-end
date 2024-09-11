@@ -163,14 +163,14 @@ const PrevPageContainer = styled.button`
 const StyledImage = styled.img`
   width: 100%;
   height: 100%;
-  border: 0.33px;
+  border: 0.020625rem;
   border-radius: 0.5rem;
   background: var(--Primary-Light, #f4f9ff);
   bottom: 0.625rem;
 `;
 
 const BorderContainer = styled.div`
-  border-bottom: 0.33px solid var(--Primary-light-active, #c9e0fd);
+  border-bottom: 0.020625rem solid var(--Primary-light-active, #c9e0fd);
 `;
 
 const Approval = styled.div`
